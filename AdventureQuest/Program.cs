@@ -9,6 +9,7 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            repeat:
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -32,13 +33,16 @@ namespace Quest
 ",
                 4, 20
             );
-
+            Challenge RestartAdventure = new Challenge("Would you like to go on another quest?", 1, 4);
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
 
             // Here we set some reasonable min and max values.
             //  If an Adventurer has an Awesomeness greater than the max, they are truly awesome
             //  If an Adventurer has an Awesomeness less than the min, they are terrible
+            Console.WriteLine("What's your name adventurer?");
+            string AName = Console.ReadLine();
+            Adventurer TheAdventurer = new Adventurer(AName);
             int minAwesomeness = 0;
             int maxAwesomeness = 100;
 
@@ -75,6 +79,16 @@ namespace Quest
             else
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+            }
+            Console.WriteLine("Would you like to go on another quest? Yes/No");
+            string Return = Console.ReadLine().ToLower();
+            if (Return == "yes")
+            {
+                goto repeat;
+            }
+            else 
+            {
+                Console.WriteLine("See ya later, loser!");
             }
         }
     }
