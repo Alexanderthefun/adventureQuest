@@ -40,17 +40,22 @@ namespace Quest
             // Here we set some reasonable min and max values.
             //  If an Adventurer has an Awesomeness greater than the max, they are truly awesome
             //  If an Adventurer has an Awesomeness less than the min, they are terrible
-            Console.WriteLine("What's your name adventurer?");
-            string AName = Console.ReadLine();
-            Adventurer TheAdventurer = new Adventurer(AName);
             int minAwesomeness = 0;
             int maxAwesomeness = 100;
-
+            Console.WriteLine("What's your name adventurer?");
+            string AName = Console.ReadLine();
+            Robe colorfulRobe = new Robe
+            {
+                Colors = new List<string> {"red", "green"},
+                Length = 72
+            };
+            Adventurer theAdventurer = new Adventurer(AName, colorfulRobe);
+            
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer("Jack");
-
+            
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
+            theAdventurer.GetDescription();
             List<Challenge> challenges = new List<Challenge>()
             {
                 twoPlusTwo,
