@@ -49,9 +49,11 @@ namespace Quest
                 Colors = new List<string> {"red", "green"},
                 Length = 72
             };
-            Hat myHat = new Hat{
+            Hat myHat = new Hat
+            {
                 ShininessLevel = 8
             };
+            Prize gamePrize = new Prize("You're awarded with kind words. Whatever you want them to be.");
             Adventurer theAdventurer = new Adventurer(AName, colorfulRobe, myHat);
             
             // Make a new "Adventurer" object using the "Adventurer" class
